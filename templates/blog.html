@@ -1,0 +1,506 @@
+{% load static %}
+{% static "images" as baseURL %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Palanquin+Dark|Roboto+Condensed&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/ee1dfcbe90.js'></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>Alghani Law Firm </title>
+</head>
+    <!-- <style>
+            body {
+            margin: 0!important; 
+            overflow-x:hidden!important;
+            overflow-y:scroll!important;
+            width: 100%!important;}
+    </style> -->
+<body style="background: linear-gradient(to bottom, #261a1c 13%, #111 16%);">
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark">
+                <img class="logo-brand" src="{% static 'img/logo2.png' %}" alt="">
+                <a class="navbar-brand ml-md-5 ml-sm-3" href="#">AlGhani</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto mr-md-5 mr-sm-3">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/services">Services</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/#team">Team</a>
+                    </li>                                  
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li> 
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/#contact">Contact Us</a>
+                    </li>
+                  </ul>
+                  
+                </div>
+              </nav>
+
+            <!--Scroll up button-->
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+            <!--Banner-->
+            <div class="banner-blog" style="background-image: url('{% static 'img/bb9.png' %}');"></div>
+            <div class="overlay-blog">
+                <div class="banner-text-blog">
+                    <p class="main-heading-blog">Alghani Blogs</p>
+                    <br>
+                    <!-- <form class="form-inline subs">
+                        <span>
+                            <div class="form-group ">
+                                <input type="text" class="form-control field1" id="usr" placeholder="Subscribe">
+                                <div type="submit" class="field2"><img class="img1" src="{% static 'img/sent-mail.png' %}" alt=""></div>
+                            </div>                
+                        </span>
+                    </form> -->
+                </div>    
+            </div>
+        <!--Blogs-->
+        <div class="blogs">
+            <div class="container">
+                <div class="row">
+                        {% for latest in latests %}
+                        <div class="col-md-6 col-sm-12">
+                            <div style="border-bottom:2px solid grey;"><h2> Latest </h2></div>
+                            <br>
+                                <div data-aos="fade-right" data-aos-duration="1000" class="card-deck latestimg">
+                                        <div class="card" style="border: none!important;">
+                                            <a href="{% url 'latest_blog_detail' slug=latest.slug pk=latest.pk %}"><img class="card-img-top latestimg" src="{{latest.img.url}}" alt="Card image cap"></a>
+                                            <div class="card-body">
+                                                <a href="{% url 'latest_blog_detail' slug=latest.slug pk=latest.pk %}" style="text-decoration: none;color:#000000"><b><h5 class="card-title">{{latest.title}}</h5></b></a>
+                                                <p class="card-text">Alghani Law Firm </p>
+                                                <P>{{latest.para1|slice:":200"}}</P>
+                                                <p class="card-text"><b>{{latest.author}}</b></p>
+                                                <p class="card-text">{{latest.created_on}}</p>
+                                            </div>
+                                        </div>             
+                                </div>
+                        </div>
+                        {% endfor %}
+                    <div class="col-md-5 col-sm-12 offset-md-1">
+                        <div style="border-bottom:2px solid grey;"><h2> Popular Posts </h2></div>
+                        {% for pop in popular_posts %}
+                        <br>
+                                    <div data-aos="fade-up" data-aos-duration="1000" class="card-deck">
+                                            <div class="card" style="background-color: #e29117;">
+                                                <a href="{% url 'popular_blog_detail' slug=pop.slug pk=pop.pk %}"><img class="card-img-top" src="{{pop.img.url}}" alt="Card image cap"></a>
+                                            </div>
+                                            <div class="card mt-2" style="border: none!important;background-color: #111111;">
+                                                    <a href="{% url 'popular_blog_detail' slug=pop.slug pk=pop.pk %}"><h5 class="card-title-p">{{pop.title}}</h5></a>
+                                                    <p class="card-text-p">{{pop.author}}</p>
+                                                    <p class="card-text-p">{{pop.created_on}}</p>
+                                            </div>           
+                                    </div>
+                                    <br>
+                        {% endfor %}
+                                    <!-- <div data-aos="fade-up" data-aos-duration="1000" class="card-deck">
+                                            <div class="card" style="background-color: #6C0E84;">
+                                                <a href="#"><img class="card-img-top" src="{% static 'img/one.png' %}" alt="Card image cap"></a>
+                                            </div>
+                                            <div class="card mt-2" style="border: none!important;">
+                                                    <h5 class="card-title-p">New Trend in Web Development</h5>
+                                                    <p class="card-text-p">Bilal Saleem </p>
+                                                    <p class="card-text-p">Sep 25 2019 8 min read* </p>
+                                            </div>           
+                                    </div>
+                                    <br>
+                                    <div data-aos="fade-up" data-aos-duration="1000" class="card-deck">
+                                            <div class="card" style="background-color: #6C0E84;">
+                                                <a href="#"><img class="card-img-top" src="{% static 'img/one.png' %}" alt="Card image cap"></a>
+                                            </div>
+                                            <div class="card mt-2" style="border: none!important;">
+                                                    <h5 class="card-title-p">New Trend in Web Development</h5>
+                                                    <p class="card-text-p">Bilal Saleem </p>
+                                                    <p class="card-text-p">Sep 25 2019 8 min read* </p>
+                                            </div>           
+                                    </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+     <!--Technology  Related-->
+    <div id="blog_detail2">
+        <div class="container">
+                <div style="border-bottom:2px solid grey;"><h2>Blogs </h2></div>
+                <br>
+                <br>
+            <div class="row">
+                {% for detail in details %}
+                <div class="col-lg-4 col-md-2 col-sm-1">
+                    <div data-aos="fade-left" data-aos-duration="1000" class="card-deck">
+                        <div class="card" style="border: none!important;">
+                            <a href="{% url 'detail_page' slug=detail.slug pk=detail.pk %}"><img class="card-img-top1" src="{{detail.img.url}}" alt="Card image cap"></a>
+                            <div class="card-body">
+                                <a href="{% url 'detail_page' slug=detail.slug pk=detail.pk %}" style="text-decoration: none;color:#000000"><b><h5 class="card-title">{{detail.title}}</h5></b></a>
+                                <p class="card-text">Alghani Firm </p>
+                                <P>{{detail.para1|slice:":200"}}</P>
+                                <p class="card-text"><b>{{detail.author}}</b></p>
+                                <p class="card-text">{{detail.created_on}}</p>
+                            </div>
+                        </div>             
+                    </div>
+                </div>
+                {% endfor %}    
+                
+                <!-- <div class="col">
+                    <div data-aos="fade-up" data-aos-duration="2000" class="card-deck">
+                        <div class="card" style="border: none!important;">
+                            <a href="#"><img class="card-img-top" src="{% static 'img/Crymcademy1.png' %}" alt="Card image cap"></a>
+                            <div class="card-body">
+                                <a href="#" style="text-decoration: none;color:#000000"><b><h5 class="card-title">Crymzee Starting Its Own Development</h5></b></a>
+                                <p class="card-text">School Crymcademy </p>
+                                <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</P>
+                                <p class="card-text"><b>Wasif Ali </b></p>
+                                <p class="card-text">Sep 25 2019 8 min Read*</p>
+                            </div>
+                        </div>             
+                    </div>
+                </div>
+                <div class="col">
+                    <div data-aos="fade-right" data-aos-duration="2000" class="card-deck">
+                        <div class="card" style="border: none!important;">
+                            <a href="#"><img class="card-img-top" src="{% static 'img/Crymcademy1.png' %}" alt="Card image cap"></a>
+                            <div class="card-body">
+                                <a href="#" style="text-decoration: none;color:#000000"><b><h5 class="card-title">Crymzee Starting Its Own Development</h5></b></a>
+                                <p class="card-text">School Crymcademy </p>
+                                <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</P>
+                                <p class="card-text"><b>Wasif Ali </b></p>
+                                <p class="card-text">Sep 25 2019 8 min Read*</p>
+                            </div>
+                        </div>             
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <!--Business  Related-->
+        <!-- <div class="container">
+                <div style="border-bottom:2px solid grey;"><h2> Business Related </h2></div>
+                <br>
+            <div class="row">
+                    {% for busi in business %}
+                    <div class="col">
+                        <div data-aos="fade-right" data-aos-duration="1000" class="card-deck">
+                            <div class="card" style="border: none!important;">
+                                <a href="{% url 'business_blog_detail' slug=busi.slug pk=busi.pk %}"><img class="card-img-top" src="{{busi.img.url}}" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <a href="{% url 'business_blog_detail' slug=busi.slug pk=busi.pk %}" style="text-decoration: none;color:#000000"><b><h5 class="card-title">{{busi.title}}</h5></b></a>
+                                    <p class="card-text">School Crymcademy </p>
+                                    <P>{{busi.para1|slice:":200"}}</P>
+                                    <p class="card-text"><b>{{busi.author}}</b></p>
+                                    <p class="card-text">{{busi.created_on}}</p>
+                                </div>
+                            </div>             
+                        </div>
+                    </div>
+                    {% endfor %} -->
+                <!-- <div class="col">
+                    <div data-aos="fade-up" data-aos-duration="2000" class="card-deck">
+                        <div class="card" style="border: none!important;">
+                            <a href="#"><img class="card-img-top" src="{% static 'img/Crymcademy1.png' %}" alt="Card image cap"></a>
+                            <div class="card-body">
+                                <a href="#" style="text-decoration: none;color:#000000"><b><h5 class="card-title">Crymzee Starting Its Own Development</h5></b></a>
+                                <p class="card-text">School Crymcademy </p>
+                                <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</P>
+                                <p class="card-text"><b>Wasif Ali </b></p>
+                                <p class="card-text">Sep 25 2019 8 min Read*</p>
+                            </div>
+                        </div>             
+                    </div>
+                </div>
+                <div class="col">
+                    <div data-aos="fade-left" data-aos-duration="2000" class="card-deck">
+                        <div class="card" style="border: none!important;">
+                            <a href="#"><img class="card-img-top" src="{% static 'img/Crymcademy1.png' %}" alt="Card image cap"></a>
+                            <div class="card-body">
+                                <a href="#" style="text-decoration: none;color:#000000"><b><h5 class="card-title">Crymzee Starting Its Own Development</h5></b></a>
+                                <p class="card-text">School Crymcademy </p>
+                                <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</P>
+                                <p class="card-text"><b>Wasif Ali </b></p>
+                                <p class="card-text">Sep 25 2019 8 min Read*</p>
+                            </div>
+                        </div>             
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <br>
+        <br>
+        <!--Freelancing  Related-->
+        <!-- <div class="container">
+                <div style="border-bottom:2px solid grey;"><h2> Freelancing </h2></div>
+                <br>
+            <div class="row">
+                    {% for free in freelancing %}
+                    <div class="col">
+                        <div data-aos="fade-left" data-aos-duration="1000" class="card-deck">
+                            <div class="card" style="border: none!important;">
+                                <a href="{% url 'freelancing_blog_detail' slug=free.slug pk=free.pk %}"><img class="card-img-top" src="{{free.img.url}}" alt="Card image cap"></a>
+                                <div class="card-body">
+                                    <a href="{% url 'freelancing_blog_detail' slug=free.slug pk=free.pk %}" style="text-decoration: none;color:#000000"><b><h5 class="card-title">{{free.title}}</h5></b></a>
+                                    <p class="card-text">School Crymcademy </p>
+                                    <P>{{free.para1|slice:":200"}}</P>
+                                    <p class="card-text"><b>{{free.author}}</b></p>
+                                    <p class="card-text">{{free.created_on}}</p>
+                                </div>
+                            </div>             
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </div> -->
+    </div>
+        <br>
+
+
+        <!-- Footer -->
+        <footer class="page-footer font-small stylish-color-dark pt-4" style="background: linear-gradient(to bottom, #251716 -34%, #111 17%);">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+    
+        <!-- Grid row -->
+        <div class="row">
+    
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+    
+            <!-- Content -->
+            <h5 class="text-white mt-3 mb-4">About Us</h5>
+            <p>AL GHANI Associates is a highly acclaimed and well-reputed law Chamber  having its head office at Lahore Punjab but  operating  through out Pakistan and also providing Advisory services to international companies. </p>
+
+                
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+    
+            <!-- Links -->
+            <h5 class=" text-white mt-3 mb-4">Links</h5>
+    
+            <ul class="list-unstyled">
+                <li>
+                <a href="/">Home</a>
+                </li>
+                <li>
+                <a href="/services">Services</a>
+                </li>
+                <li>
+                <a href="/portfolio">Portfolio</a>
+                </li>
+                <li>
+                <a href="/#team">Team</a>
+                </li>
+                <li>
+                <a href="/blog">Blog</a>
+                </li>
+                <li>
+                <a href="/#contact">Contact Us</a>
+                </li>
+            </ul>
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+    
+            <!-- Links -->
+            <h5 class="text-white mt-3 mb-4">Services</h5>
+
+            <ul class="list-unstyled">
+                <li>
+                <a href="#!">Civil Law </a>
+                </li>
+                <li>
+                <a href="#!">Criminal Law</a>
+                </li>
+                <li>
+                <a href="#!">Family Law</a>
+                </li>
+                <li>
+                <a href="#!">Labour Law</a>
+                </li>
+            </ul>
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+    
+            <!-- Links -->
+            <h5 class="text-white mt-3 mb-4">Blog</h5>
+            {% for blog in footer_blog_posts %}
+            <h5 class="card-title"style="color: #eeeeeeb3;">{{blog.title}}</h5>
+            <a href="{% url 'latest_blog_detail' slug=blog.slug pk=blog.pk %}"><img src="{{blog.img.url}}" alt=""></a>
+            <br><br>
+            <p style="font-size: 12px;">{{blog.description}}</p>
+            {% endfor %}
+            {% comment %} <h5 class="text-white mt-3 mb-4">Follow Us</h5>
+            <ul class="list-unstyled">
+                    <li>
+                    <a href="#!">Facebook</a>
+                    </li>
+                    <li>
+                    <a href="#!">Instagram</a>
+                    </li>
+                    <li>
+                    <a href="#!">Twitter</a>
+                    </li>
+                </ul> {% endcomment %}
+            <!-- <ul class="list-unstyled">
+                <li>
+                <a href="#!">Link 1</a>
+                </li>
+                <li>
+                <a href="#!">Link 2</a>
+                </li>
+                <li>
+                <a href="#!">Link 3</a>
+                </li>
+                <li>
+                <a href="#!">Link 4</a>
+                </li>
+            </ul> -->
+    
+            </div>
+            <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+    
+        </div>
+        <!-- Footer Links -->
+    
+        <hr>
+    
+        <!-- Social buttons -->
+        {% comment %} <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+            <a class="btn-floating btn-fb mx-1" href="#">
+                <i class="fab fa-facebook-f"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1" href="#">
+                <i class="fab fa-twitter"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1" href="#">
+                <i class="fab fa-instagram"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-li mx-1" href="#">
+                <i class="fab fa-linkedin-in"> </i>
+            </a>
+        </li>
+       
+        </ul> {% endcomment %}
+        <!-- Social buttons -->
+    
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-muted">© 2019 Copyright:
+            <span>Powered by<a class="text-white" href="#">Crymzee Pvt. Ltd.</a></span>
+        </div>
+        <!-- Copyright -->
+    
+    </footer>
+    <!-- Footer -->
+
+    <script>
+        //Change pos/background/padding/add shadow on nav when scroll event happens 
+        $(function(){
+            var navbar = $('.navbar');
+            
+            $(window).scroll(function(){
+                if($(window).scrollTop() <= 40){
+                    navbar.removeClass('navbar-scroll');
+                } else {
+                    navbar.addClass('navbar-scroll');
+                }
+            });
+        });
+    </script>
+        <script>
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+            
+            function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+            }
+            
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            }
+        </script>
+        <script>
+                AOS.init();
+        </script>
+        <script>
+            var docWidth = document.documentElement.offsetWidth;
+
+[].forEach.call(
+  document.querySelectorAll('*'),
+  function(el) {
+    if (el.offsetWidth > docWidth) {
+      console.log(el);
+    }
+  }
+);
+        </script>
+        
+    <script src="{% static 'css/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html> 

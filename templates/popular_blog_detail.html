@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static "images" as baseURL %}
+
+
+{% block content %}
+<!--Blogs-->
+<div class="blog_detail blog_detail_1 " style="border: none!important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div data-aos="fade-right" data-aos-duration="1000" class="card-deck">
+                            <div style="border: none!important;padding-top: 40px;">
+                                <img class="card-img-top img_blog_detail" src="{{pop.img.url}}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title blog_detail_title">{{pop.title}}</h5>
+                                    <p class="card-text blog_detail_title">Alghani Firm</p>
+                                    <p class="card-text">Posted at: {{pop.created_on}}</p>
+                                    <p class="card-text"><b>{{pop.author}}</b></p>
+                                    <P class="card-text">{{pop.para1}}</P>         
+                                </div>
+                                <br>
+                            </div>             
+                    </div>
+                    
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-8 detailimg">
+                <div class="card-deck">
+                    <div class="card" style="border: none!important;">                                        
+                        <div class="card-body">
+                                <p class="card-text">{{pop.para2}}</p>
+                        </div>             
+                    </div>
+                </div>
+            </div>
+                <div class="card-body col-4" style="border: none!important;">
+                    <img class="card-img-top1" src="{{pop.img.url}}" alt="">
+                </div>
+        </div>
+        
+
+        <div class="card-body">
+            <h5 class="card-title blog_detail_title">About Firm</h5>
+            <P class="card-text">{{pop.para3}}</P>
+        </div>
+        <div class="card-body detailimg">
+            <div class="row">
+                    <div class="col-lg-4 col-md-2 col-sm-1">
+                                    <img class="card-img-top1" src="{{pop.img.url}}" alt="">
+                    </div>
+                    <div class="col-lg-4 col-md-2 col-sm-1">
+                                    <img class="card-img-top1" src="{{pop.img.url}}" alt="">
+                    </div>
+                    <div class="col-lg-4 col-md-2 col-sm-1">
+                            <img class="card-img-top1" src="{{pop.img.url}}" alt="">
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

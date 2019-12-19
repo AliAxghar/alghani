@@ -1,0 +1,590 @@
+{% load static %}
+{% static "images" as baseURL %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Palanquin+Dark|Roboto+Condensed&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/ee1dfcbe90.js'></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>Al Ghani Law Firm </title>
+    
+</head>
+
+<body style="background-color: #111!important;">
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark">
+                <img class="logo-brand" src="{% static 'img/logo2.png' %}" alt="">
+                <a class="navbar-brand ml-md-5 ml-sm-3" href="#">AlGhani</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto mlhome">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/services">Services</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>                                   
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li> 
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                  </ul>
+                  
+                </div>
+              </nav>
+
+            <!--Scroll up button-->
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+            <!--banner-->
+            <div class="">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                      <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      </ol>
+                      <div class="carousel-inner" role="listbox">
+                        <!-- Slide One - Set the background image for this slide in the line below -->
+                            <div class="carousel-item active" style="background-image: url('{% static 'img/home1.jpg' %}');">
+                                <div class="carousel-caption d-none d-md-block ">
+                                    <div class="banner-text">
+                                        <p class="main-heading mnhead" style="color: #e29117!important"></p>
+                                        <p class="sub-heading sbhead"></p>
+                                        <a href="#contact"><div type="button" class="btn btn-default btn-lg btn btn-warning bttn">Get In Touch</div></a>
+                                        <p class="scroll abtscroll">
+                                            <a href="#about">
+                                                <img src="{% static 'img/arrow-down.png' %}" alt="arrow-down"><br>
+                                                <span class="scroll-btn abt-scroll">About Us</span>
+                                            </a>
+                                        </p>
+                                    </div>    
+                                </div>
+                            </div>
+                        <!-- Slide Two - Set the background image for this slide in the line below -->
+                        <div class="carousel-item" style="background-image: url('{% static 'img/7.jpg' %}');">
+                          <div class="carousel-caption d-none d-md-block">
+                                <div class="banner-text">
+                                    <p class="main-heading" style="color: #e29117!important"> We serve you better.</p>
+                                    <p class="sub-heading">Advocates. Legal Advisors. Solicitors.</p>
+                                    <a href="#contact"><div type="button" class="btn btn-default btn btn-warning btn-lg">Get In Touch</div></a>
+                                    <p class="scroll">
+                                        <a href="#about">
+                                            <img src="{% static 'img/arrow-down.png' %}" alt="arrow-down"><br>
+                                            <span class="scroll-btn">About Us</span>
+                                        </a>
+                                    </p>
+                                </div>
+                          </div>
+                        </div>
+                        <!-- Slide Three - Set the background image for this slide in the line below -->
+                        <div class="carousel-item" style="background-image: url('{% static 'img/4.jpg' %}');">
+                          <div class="carousel-caption d-none d-md-block">
+                                <div class="banner-text">
+                                    <p class="main-heading" style="color: #e29117!important"> We serve you better.</p>
+                                    <p class="sub-heading">Law Advocates. Legal Advisors. Solicitors.</p>
+                                    <a href="#contact"><div type="button" class="btn btn-default btn btn-warning btn-lg">Get In Touch</div></a>
+                                    <p class="scroll">
+                                        <a href="#about">
+                                            <img src="{% static 'img/arrow-down.png' %}" alt="arrow-down"><br>
+                                            <span class="scroll-btn">About Us</span>
+                                        </a>
+                                    </p>
+                                </div>
+                          </div>
+                        </div>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                    </div>
+                </div>
+
+
+            <!--endbanner-->
+
+
+            <!--About Us-->
+            <div id="about" class="conatiner-fluid ">
+                <div class="container col-12 col-md-10 offset-md-1 col-sm-12">
+                <h2>Our Law Firm</h2>
+                <br>
+                <p>AL GHANI  Law  Chamber  is a highly reputable and well-acclaimed law firm of Pakistan, having a vast legal experience of numerous matters pertaining to Pakistani laws. Our legal firm is committed to providing unparalleled legal services to our clients and building a lasting relationship with clients through honesty, hard-working and professional responsibility . Our extensive successful litigation experience is a testimony of trust and confidence. </p>    
+            </div>
+            </div>
+            <div class="container-fluid" id="about_sec">                
+                   <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 offset-md-1 col-sm-12">
+                            <br>
+                            <br>
+                            <div class="about_text">
+                                <h2>Message From CEO</h2>
+                                <br>
+                                <p>Our team of legal experts is devoted to handle your cases with utmost sincerity and professionalism. We sincerely accept your problems as our own with full sincerity, devotedness and care. Our dynamic legal team is highly trained in imparting confidence in our clients despite the gravest complications and trust is our main expertise. So, you are encouraged to bring your legal matters with confidence and rest is our responsibility.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 order-12 col-sm-12 sec2">
+                                <img src="{% static 'img/admin1.png' %}" alt="">
+                                <br>
+                                <br>
+                                <h4>Yasrab Gulzar</h4>
+                                <p>Advocate High Court</p>
+                                <br>
+                                <span>
+                                        <a href="https://www.facebook.com/Al-Ghani-law-chamber-101892094648699/?__tn__=%2Cd%2CP-R&eid=ARDNjqyRvpPjWHqPu28GSxVFgKqUzjlEeNdvpsVQdJlDPt07O0ILMZPvboE6ef6-wLLqdbBndyYodAGM"><i class="fab fa-facebook"></i></a>
+                                        <a href="https://twitter.com/GulzarYasrab"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://www.linkedin.com/in/yasrab-gulzar-293734a2/"><i class="fab fa-linkedin-in"></i></a>  
+                                </span>
+                        </div>
+                        
+                    </div> 
+                   </div>                
+            </div>
+            <!--Services-->
+            <div class="container-fluid" id="services"></div>
+            <div class="service-overlay">
+                <h1>Services We Provide</h1>
+                <div class="container link1">
+                <div class="row">
+                    <div class="col col-xs-12 px-lg-5">
+                        <a href="/services/#criminal_law">
+                        <img src="{% static 'img/criminalicon.png' %}" alt="">
+                        <h4>Criminal Law</h4>
+                        <p>
+                        AL GHANI associates provide impeccable services in the area of criminal law. The chief acts related to Criminal Law in Pakistan are Criminal Procedure Code (CrPC) 1898.</p>
+                        </a>
+                    </div>
+                        <div class="col order-12 col-xs-12 px-lg-5">
+                            <a href="/services/#civil_law">
+                            <img src="{% static 'img/civilicon.png' %}" alt="">
+                            <h4>Civil Law</h4>
+                            <p>Our law firm has a highly reputable record of offering civil law services in Pakistan.Our firm lawyers have a very broad experience of working on matters related to Civil law.</p>
+                            </a>
+                        </div>
+                        <div class="col order-1 col-xs-12 px-lg-5">
+                            <a href="/services/#family_law">
+                            <img src="{% static 'img/familyicon.png' %}" alt="">
+                            <h4>Family Law</h4>
+                            <p>Law pertaining to family issues has acquired vital importance in modern times. Our firm has vast experience of providing consultancy in family issues related to family law.</p>
+                            </a>
+                        </div>
+                </div>
+                </div>
+                <div class="container link1">
+                <div class="row">
+                        <div class="col col-xs-12 px-lg-5">
+                            <a href="/services/#service_matters">
+                            <img src="{% static 'img/serviceicon.png' %}" alt="">
+                            <h4>Service Matters</h4>
+                            <p>
+                            AL GHANI law associates has established its footmark in providing quintessential guidelines related to service matters of public servants and private employees.</p>
+                            </a>
+                        </div>
+                        <div class="col order-12 col-xs-12 px-lg-5">
+                            <a href="/services/#immigrations">
+                            <img src="{% static 'img/immiicon.png' %}" alt="">
+                            <h4>Immigrations</h4>
+                            <p>
+                                Our law firm is committed to providing broad services related to the global as well as national immigration laws emigrants consultancy according to the laws.</p>
+                            </a>
+                            </div>
+                        <div class="col order-1 col-xs-12 px-lg-5">
+                            <a href="/services/#consultants">
+                            <img src="{% static 'img/consultanticon.png' %}" alt="">
+                            <h4>Consultant</h4>
+                            <p>AL GHANI offers unparalleled consultancy in various domains of laws and acts in Pakistan. Our lawyers have vast experience of working on high profile cases across the country.</p>
+                            </a>
+                        </div>
+                </div>
+                </div>
+            </div>
+
+            <!--Team-->
+            <div class="container-fluid" id="team">
+                <h1>A Passionate Team</h1>                
+                <div class="container">         
+                    <div class="row">
+                            {% for alghani_Admin_team in alghani_Admin_teams %}
+                        <div class="col">
+                            
+                            <img src="{{alghani_Admin_team.img.url}}" alt="">
+                            <h4>{{alghani_Admin_team.name}}</h4>
+                            <p>{{alghani_Admin_team.desc}}</p>
+                            {% if alghani_Admin_team.socialshare %}
+                            <span>
+                                <a href="https://www.facebook.com/Al-Ghani-law-chamber-101892094648699/?__tn__=%2Cd%2CP-R&eid=ARDNjqyRvpPjWHqPu28GSxVFgKqUzjlEeNdvpsVQdJlDPt07O0ILMZPvboE6ef6-wLLqdbBndyYodAGM"><i class="fab fa-facebook fa-1x"></i></a>
+                                <a href="https://twitter.com/GulzarYasrab"><i class="fab fa-twitter fa-1x"></i></a>
+                                <a href="https://www.linkedin.com/in/yasrab-gulzar-293734a2/"><i class="fab fa-linkedin-in fa-1x"></i></a>  
+                            </span>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>                
+                    <div class="row" id="row2">
+                            {% for alghani_team in alghani_teams %}
+                            <div class="col">
+                                <img src="{{alghani_team.img.url}}" alt="">
+                                <h4>{{alghani_team.name}}</h4>
+                                <p>{{alghani_team.desc}}</p>
+                            </div>
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!--Testimonials-->
+        <div id="testimonials">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1"></div>                
+                    <div class="col-md-10 col-center">
+                        <h1 id="myCarousel1">Testimonials</h1>
+                            <div id="myCarousel" class="carousel slide carousel1" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                                </ol>   
+                                <div class="carousel-inner carousel-inner-class">
+                                    {% for test in testi %}
+                                        {% if forloop.counter == 1 %}
+                                    <div class="item carousel-item active ">
+                                        {% else %}
+                                        <div class="item carousel-item">
+                                            {% endif %}
+                                            <div class="testi col-md-12 mt-5">
+                                                <p><img src="{% static 'img/start.png' %}">{{test.desc}}<img src="{% static 'img/end.png' %}"></p>
+                                                
+                                                <!-- <img src="{{test.img.url}}" alt="client">   -->
+                                                
+                                                <br>
+                                                <p style="color: #eeeeeed9;"><b>{{test.name}}</b><br><span>{{test.title}}</span></p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    </div>              
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-md-1"></div> 
+                </div>
+            </div>
+        </div>
+
+            <!--Contact Us-->
+            <div id="contact">
+                <div class="container">
+                    <h1>Get In Touch</h1>
+                    <div class="row" >
+                        <div class="col-md-6 col-sm-12">
+                            <br>
+                            <form role="form" id="contact-form" method="POST" action="">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="inputAddress" name="how_can_we_help" placeholder="How can we help you?">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="inputEmail4" name="name" placeholder="Name" required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="email" class="form-control" id="inputPassword4" name="email" placeholder="Email" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <input type="number" class="form-control" id="inputEmail4" name="phone" placeholder="Phone" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <input type="textx"class="form-control" id="inputPassword4" name="organization" placeholder="Organization">
+                                        </div>
+                                </div>
+                                        
+                                <div class="form-group">
+                                    <textarea class="form-control" id="detail" name="description"  placeholder="Project Description" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">S e n d</button>                                     
+                            </form>
+                        </div>
+                        <div class="col-md-5 offset-1">
+                            <br>
+                            <div>
+                                <div>
+                                    <i style="color:#fff;" class="fas fa-map-marker-alt fa-2x"></i>
+                                    <span>
+                                        <p class="mark_p1">19 M Jeff Heights Gulberg-3</p><br>
+                                        <p class="mark_p2">Lahore, Pakistan</p><br>
+                                    </span>
+                                </div>
+                                <br>
+                                <br>
+                                <div>
+                                    <i style="color:#fff;" class="fas fa-phone fa-2x"></i>
+                                    <span>
+                                        <p class="phon_p1">042 357 568 42</p><br>
+                                        <p class="phon_p2">Mon To Sat 9:00 Am to 6 pm</p><br>
+                                    </span>
+                                </div>
+                                <br>
+                                <br>
+                                <div>
+                                    <i style="color:#fff;" class="fas fa-envelope fa-2x"></i>
+                                    <span>
+                                        <p class="mail_p1">info@alghani.com</p><br>
+                                        <p class="mail_p2">Send us your query anytime</p><br>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--News Feed-->
+        <div id="news">
+            <div class="container">
+                <h1>News Feed</h1>
+                <div class="row">
+                        {% for blog in blog_posts %}
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card-deck" style="border: none;">         
+                                    <div class="card"style="border: none;">
+                                        <a href="{% url 'latest_blog_detail' slug=blog.slug pk=blog.pk %}">
+                                        <img class="card-img-top1" src="{{blog.img.url}}" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{blog.title}}</h5>
+                                            <p class="card-text">{{blog.para1|slice:":200"}}</p>
+                                        </div>
+                                        <div class="card-footer">
+                                        <span><small class="text-muted">Last updated {{blog.created_on}}</small></span>  
+                                        </div>
+                                        </a>
+                                    </div>             
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        <!-- Footer -->
+        <footer class="page-footer font-small stylish-color-dark pt-4"   style="background: linear-gradient(to bottom, #251716 -34%, #111 17%);">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+    
+        <!-- Grid row -->
+        <div class="row">
+    
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+    
+            <!-- Content -->
+            <h5 class="text-white mt-3 mb-4">About Us</h5>
+            <p>AL GHANI Associates is a highly acclaimed and well-reputed law Chamber  having its head office at Lahore Punjab but  operating  through out Pakistan and also providing Advisory services to international companies. </p>
+                
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+    
+            <!-- Links -->
+            <h5 class=" text-white mt-3 mb-4">Links</h5>
+    
+            <ul class="list-unstyled">
+                <li>
+                <a href="">Home</a>
+                </li>
+                <li>
+                <a href="/services">Services</a>
+                </li>
+                <li>
+                <a href="/portfolio">Portfolio</a>
+                </li>
+                <li>
+                <a href="#!">Team</a>
+                </li>
+                <li>
+                <a href="/blog">Blog</a>
+                </li>
+                <li>
+                <a href="#!">Contact Us</a>
+                </li>
+            </ul>
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+    
+            <!-- Links -->
+            <h5 class="text-white mt-3 mb-4">Services</h5>
+
+            <ul class="list-unstyled">
+                <li>
+                <a href="#!">Civil Law </a>
+                </li>
+                <li>
+                <a href="#!">Criminal Law</a>
+                </li>
+                <li>
+                <a href="#!">Family Law</a>
+                </li>
+                <li>
+                <a href="#!">Labour Law</a>
+                </li>
+            </ul>
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+            <!-- Links -->
+            <h5 class="text-white mt-3 mb-4">Blog</h5>
+            {% for blog in footer_blog_posts %}
+            <h5 class="card-title"style="color: #eeeeeeb3;">{{blog.title}}</h5>
+            <a href="{% url 'latest_blog_detail' slug=blog.slug pk=blog.pk %}"><img src="{{blog.img.url}}" alt=""></a>
+            <br><br>
+            <p style="font-size: 12px;">{{blog.description}}</p>
+            {% endfor %}
+            <!-- <ul class="list-unstyled">
+                <li>
+                <a href="#!">Link 1</a>
+                </li>
+                <li>
+                <a href="#!">Link 2</a>
+                </li>
+                <li>
+                <a href="#!">Link 3</a>
+                </li>
+                <li>
+                <a href="#!">Link 4</a>
+                </li>
+            </ul> -->
+    
+            </div>
+            <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+    
+        </div>
+        <!-- Footer Links -->
+    
+        <hr>
+    
+        <!-- Social buttons -->
+        <!-- <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+            <a class="btn-floating btn-fb mx-1" href="#">
+                <i class="fab fa-facebook-f"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1" href="#">
+                <i class="fab fa-twitter"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1" href="#">
+                <i class="fab fa-instagram"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-li mx-1" href="#">
+                <i class="fab fa-linkedin-in"> </i>
+            </a>
+        </li>
+       
+        </ul> -->
+        <!-- Social buttons -->
+    
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-muted">© 2019 Copyright:
+            <span>Powered by<a class="text-white" href="#"> Crymzee Pvt. Ltd.</a></span>
+        </div>
+        <!-- Copyright -->
+    
+    </footer>
+    <!-- Footer -->
+
+    <script>
+        //Change pos/background/padding/add shadow on nav when scroll event happens 
+        $(function(){
+            var navbar = $('.navbar');
+            
+            $(window).scroll(function(){
+                if($(window).scrollTop() <= 40){
+                    navbar.removeClass('navbar-scroll');
+                } else {
+                    navbar.addClass('navbar-scroll');
+                }
+            });
+        });
+    </script>
+        <script>
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+            
+            function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+            }
+            
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            }
+        </script>
+        
+    <script src="{% static 'css/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+</body>
+</html> 

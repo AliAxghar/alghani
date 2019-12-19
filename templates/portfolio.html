@@ -1,0 +1,445 @@
+{% load static %}
+{% static "images" as baseURL %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="js" href="{% static 'js/js.js' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Palanquin+Dark|Roboto+Condensed&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/ee1dfcbe90.js'></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.1/web-animations.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>Alghani Firm law </title>
+</head>
+<style>
+        .filterDiv {
+          float: left;
+          display: none;
+        }
+        
+        .show {
+          display: block;
+        }
+        
+        #filtercontainer .container-fluid {
+          overflow: hidden;
+        }
+        
+        /* Style the buttons */
+        body #myBtnContainer.btn {
+          border: none;
+          cursor: pointer;
+
+        }
+        body #filtercontainer .container-fluid {
+            padding-right: 0px!important;
+            padding-left: 0px!important;}
+        </style>
+<body style="background-color: #111;">
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark">
+                <img class="logo-brand" src="{% static 'img/logo2.png' %}" alt="">
+                <a class="navbar-brand ml-md-5 ml-sm-3" href="#">AlGhani</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto mr-md-5 mr-sm-3">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/services">Services</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/#team">Team</a>
+                    </li>                                  
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li> 
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/#contact">Contact Us</a>
+                    </li>
+                  </ul>
+                  
+                </div>
+        </nav>
+
+            <!--Scroll up button-->
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+            <!--Banner-->
+            <div class="banner-blog" style="background-image: url('{% static 'img/port5.jpg' %}');"></div>
+            <div class="overlay-blog">
+                <div class="banner-text-blog">
+                    <p class="main-heading-blog">Our Portfolio</p>
+                    <br>
+                    <!-- <form class="form-inline subs">
+                        <span>
+                            <div class="form-group ">
+                                <input type="text" class="form-control field1" id="usr" placeholder="Subscribe">
+                                <div type="submit" class="field2"><img class="img1" src="{% static 'img/sent-mail.png' %}" alt=""></div>
+                            </div>                
+                        </span>
+                    </form> -->
+                </div>    
+            </div>
+            <!-- portfolio -->
+        <div id="portfolio_page">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="line"></div>                       
+                    </div>
+                </div>
+                    <br>
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                    <p>Our law firm has a highly reputable record of offering law services in Pakistan. The lawyers associated with our firm have a very broad experience of working on matters related to law services in Pakistan and have covered vast cases in higher courts as well in this domain.
+                                    </p>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+                        <br>
+                            <div class="row">
+                                <div class="col-lg-1"></div>
+                                <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="sup_sorting sup_bottompadder30">
+                                        {% comment %} <div class="filter-nav" id="myBtnContainer">
+                                            <button  class="btn btn-outline-warning" onclick="filterSelection('all')">All</button>
+                                            <button  class="btn btn-outline-warning"  onclick="filterSelection('civil')">Civil Law</button>
+                                            <button  class="btn btn-outline-warning"  onclick="filterSelection('criminal')">Criminal Law</button>
+                                            <button  class="btn btn-outline-warning"  onclick="filterSelection('family')">Family Law</button>
+                                            <button  class="btn btn-outline-warning"  onclick="filterSelection('writs')">Writs</button>
+                                            <button  class="btn btn-outline-warning"  onclick="filterSelection('labour')">Labour Law</button>
+                                            <button  class="btn btn-outline-warning"  onclick="filterSelection('service')">Service Matters</button>    
+                                            <button  class="btn btn-outline-warning"  onclick="filterSelection('consumer')">Consumer Matters</button>                 
+                                            <button  class="btn btn-outline-warning"  onclick="filterSelection('immigrations')">Immigrations</button>                       
+                                            <button  class="btn btn-outline-warning"  onclick="filterSelection('consultants')">Consultant</button>
+                                        </div> {% endcomment %}
+                                    </div>
+                                </div>
+                                <div class="col-lg-1"></div>
+                            </div>
+                            <br>
+                        <div id="filtercontainer" style="padding-bottom: 50px;">
+                            <div class="container-fluid">
+                                <div class="row">
+                                {% for post1 in civil_law %}
+                                    <div class="filterDiv civil portfolio-image">
+                                        <a href="{% url 'portfolio_detail' pk=post1.pk %}"><img src="{{post1.img.url}}" alt=""></a>
+                                    </div>
+                                {% endfor %}
+                                {% for post1 in criminal_law %}
+                                    <div class="filterDiv criminal portfolio-image">                             
+                                        <a href="{% url 'portfolio_detail' pk=post1.pk %}"><img src="{{post1.img.url}}" alt=""></a>
+                                    </div>
+                                {% endfor %}
+                                {% for post1 in family_law %}
+                                    <div class="filterDiv family portfolio-image">
+                                        <a href="{% url 'portfolio_detail' pk=post1.pk %}"><img src="{{post1.img.url}}" alt=""></a>
+                                    </div>
+                                {% endfor %}
+                                {% for post1 in writs %}
+                                    <div class="filterDiv writs portfolio-image">
+                                        <a href="{% url 'portfolio_detail' pk=post1.pk %}"><img src="{{post1.img.url}}" alt=""></a>
+                                    </div>
+                                {% endfor %}
+                                {% for post1 in labour_laws %}
+                                    <div class="filterDiv labour portfolio-image">
+                                        <a href="{% url 'portfolio_detail' pk=post1.pk %}"><img src="{{post1.img.url}}" alt=""></a>
+                                    </div>
+                                {% endfor %}
+                                {% for post1 in consumer_matters %}
+                                    <div class="filterDiv consumer portfolio-image">
+                                        <a href="{% url 'portfolio_detail' pk=post1.pk %}"><img src="{{post1.img.url}}" alt=""></a>
+                                    </div>
+                                {% endfor %}
+                                {% for post1 in service_matters %}
+                                    <div class="filterDiv service portfolio-image">
+                                        <a href="{% url 'portfolio_detail' pk=post1.pk %}"><img src="{{post1.img.url}}" alt=""></a>
+                                    </div>
+                                {% endfor %}
+                                {% for post1 in immigrations %}
+                                    <div class="filterDiv immigrations portfolio-image">
+                                        <a href="{% url 'portfolio_detail' pk=post1.pk %}"><img src="{{post1.img.url}}" alt=""></a>
+                                    </div>
+                                {% endfor %}
+                                {% for post1 in consultants %}
+                                    <div class="filterDiv consultants portfolio-image">
+                                        <a href="{% url 'portfolio_detail' pk=post1.pk %}"><img src="{{post1.img.url}}" alt=""></a>
+                                    </div>
+                                {% endfor %} 
+                            </div>     
+                        </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="page-footer font-small stylish-color-dark pt-5"style="background: linear-gradient(to bottom, #251716 -34%, #111 17%);">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+    
+        <!-- Grid row -->
+        <div class="row">
+    
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+    
+            <!-- Content -->
+            <h5 class="text-white mt-3 mb-4">About Us</h5>
+            <p>AL GHANI Associates is a highly acclaimed and well-reputed law Chamber  having its head office at Lahore Punjab but  operating  through out Pakistan and also providing Advisory services to international companies. </p>
+
+                
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+    
+            <!-- Links -->
+            <h5 class=" text-white mt-3 mb-4">Links</h5>
+    
+            <ul class="list-unstyled">
+                <li>
+                <a href="/">Home</a>
+                </li>
+                <li>
+                <a href="/services">Services</a>
+                </li>
+                <li>
+                <a href="/portfolio">Portfolio</a>
+                </li>
+                <li>
+                <a href="/#team">Team</a>
+                </li>
+                <li>
+                <a href="/blog">Blog</a>
+                </li>
+                <li>
+                <a href="/#contact">Contact Us</a>
+                </li>
+            </ul>
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+    
+            <!-- Links -->
+            <h5 class="text-white mt-3 mb-4">Services</h5>
+
+            <ul class="list-unstyled">
+                <li>
+                <a href="#!">Civil Law </a>
+                </li>
+                <li>
+                <a href="#!">Criminal Law</a>
+                </li>
+                <li>
+                <a href="#!">Family Law</a>
+                </li>
+                <li>
+                <a href="#!">Labour Law</a>
+                </li>
+            </ul>
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+    
+            <!-- Links -->
+            <h5 class="text-white mt-3 mb-4">Blog</h5>
+            {% for blog in footer_blog_posts %}
+            <h5 class="card-title"style="color: #eeeeeeb3;">{{blog.title}}</h5>
+            <a href="{% url 'latest_blog_detail' slug=blog.slug pk=blog.pk %}"><img src="{{blog.img.url}}"  alt=""></a>
+            <br><br>
+            <p style="font-size: 12px;">{{blog.description}}</p>
+            {% endfor %}
+            {% comment %} <h5 class="text-white mt-3 mb-4">Follow Us</h5>
+            <ul class="list-unstyled">
+                    <li>
+                    <a href="#!">Facebook</a>
+                    </li>
+                    <li>
+                    <a href="#!">Instagram</a>
+                    </li>
+                    <li>
+                    <a href="#!">Twitter</a>
+                    </li>
+                </ul> {% endcomment %}
+            <!-- <ul class="list-unstyled">
+                <li>
+                <a href="#!">Link 1</a>
+                </li>
+                <li>
+                <a href="#!">Link 2</a>
+                </li>
+                <li>
+                <a href="#!">Link 3</a>
+                </li>
+                <li>
+                <a href="#!">Link 4</a>
+                </li>
+            </ul> -->
+    
+            </div>
+            <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+    
+        </div>
+        <!-- Footer Links -->
+    
+        <hr>
+    
+        <!-- Social buttons -->
+        {% comment %} <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+            <a class="btn-floating btn-fb mx-1" href="#">
+                <i class="fab fa-facebook-f"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1" href="#">
+                <i class="fab fa-twitter"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1" href="#">
+                <i class="fab fa-instagram"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-li mx-1" href="#">
+                <i class="fab fa-linkedin-in"> </i>
+            </a>
+        </li>
+       
+        </ul> {% endcomment %}
+        <!-- Social buttons -->
+    
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-muted">© 2019 Copyright:
+            <span>Powered by<a class="text-white" href="#">Crymzee Pvt. Ltd.</a></span>
+        </div>
+        <!-- Copyright -->
+    
+    </footer>
+    <!-- Footer -->
+    <script>
+        //Change pos/background/padding/add shadow on nav when scroll event happens 
+        $(function(){
+            var navbar = $('.navbar');
+            
+            $(window).scroll(function(){
+                if($(window).scrollTop() <= 40){
+                    navbar.removeClass('navbar-scroll');
+                } else {
+                    navbar.addClass('navbar-scroll');
+                }
+            });
+        });
+    </script>
+        <script>
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+            
+            function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+            }
+            
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            }
+        </script>
+        <script>
+                AOS.init();
+        </script>
+        <script>
+                filterSelection("all")
+                function filterSelection(c) {
+                  var x, i;
+                  x = document.getElementsByClassName("filterDiv");
+                  if (c == "all") c = "";
+                  for (i = 0; i < x.length; i++) {
+                    w3RemoveClass(x[i], "show");
+                    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+                  }
+                }
+                
+                function w3AddClass(element, name) {
+                  var i, arr1, arr2;
+                  arr1 = element.className.split(" ");
+                  arr2 = name.split(" ");
+                  for (i = 0; i < arr2.length; i++) {
+                    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+                  }
+                }
+                
+                function w3RemoveClass(element, name) {
+                  var i, arr1, arr2;
+                  arr1 = element.className.split(" ");
+                  arr2 = name.split(" ");
+                  for (i = 0; i < arr2.length; i++) {
+                    while (arr1.indexOf(arr2[i]) > -1) {
+                      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+                    }
+                  }
+                  element.className = arr1.join(" ");
+                }
+                
+                // Add active class to the current button (highlight it)
+                var btnContainer = document.getElementById("myBtnContainer");
+                var btns = btnContainer.getElementsByClassName("btn1");
+                for (var i = 0; i < btns.length; i++) {
+                  btns[i].addEventListener("click", function(){
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                  });
+                }
+        </script>
+        
+    <script src="{% static 'css/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html> 

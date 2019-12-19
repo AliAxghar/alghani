@@ -1,0 +1,729 @@
+{% load static %}
+{% static "images" as baseURL %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Palanquin+Dark|Roboto+Condensed&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/ee1dfcbe90.js'></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>Alghani-services </title>
+</head>
+<body style=" background: linear-gradient(to bottom, #b87333 -77%, #111 31%)">
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark">
+                <img class="logo-brand" src="{% static 'img/logo2.png' %}" alt="">
+                <a class="navbar-brand ml-md-5 ml-sm-3" href="#">AlGhani</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto mr-md-5 mr-sm-3">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/services">Services</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/#team">Team</a>
+                    </li>                                  
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li> 
+                    <li class="nav-item active">
+                      <a class="nav-link" href="/#contact">Contact Us</a>
+                    </li>
+                  </ul>
+                  
+                </div>
+              </nav>
+
+            <!--Scroll up button-->
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+            <!--Banner-->
+            <div class="banner-blog" style="background-image: url('{% static 'img/s2.jpg' %}');"></div>
+            <div class="overlay-blog">
+                <div class="banner-text-blog">
+                    <p class="main-heading-blog">Our Services</p>
+                    <br>
+                    <!-- <form class="form-inline subs">
+                        <span>
+                            <div class="form-group ">
+                                <input type="text" class="form-control field1" id="usr" placeholder="Subscribe">
+                                <div type="submit" class="field2"><img class="img1" src="{% static 'img/sent-mail.png' %}" alt=""></div>
+                            </div>                
+                        </span>
+                    </form> -->
+                </div>    
+            </div>
+            <!-- services -->
+            <br>
+            <div id="services_page">
+                <div class="container-fluid">
+                        <div id="accordion">
+                                {% for data in criminal_law %}
+                            <div id="criminal_law" class="row" style="background: linear-gradient(to bottom, #251716 -3%, #111 14%);">
+                                <div class="col-6 col_66" >
+                                    <div  style="border: none!important;background: #111 ";>
+                                        <h2>Criminal Law</h2>
+                                        <br>
+                                        <p class="para">{{data.title}}</p>
+                                        <ul>
+                                                {% if data.list1%}
+                                                <li class="list1">{{data.list1}}</li>
+                                                {% endif %}
+                                                <br>
+                                                {% if data.list2%}
+                                                <li class="list1">{{data.list2}}</li>
+                                                {% endif %}
+                                                <br>
+                                                {% if data.list3%}
+                                                <li class="list1">{{data.list3}}</li>
+                                                {% endif %}
+                                                <br>
+                                                {% if data.list4%}
+                                                <li class="list1">{{data.list4}}</li>
+                                                {% endif %}
+                                                <br>
+                                                {% if data.list5%}
+                                                <li class="list1">{{data.list5}}</li>
+                                                {% endif %}
+                                                <br>
+                                                {% if data.list6%}
+                                                <li class="list1">{{data.list4}}</li>
+                                                {% endif %}
+                                                <br>
+                                                {% if data.list7%}
+                                                <li class="list1">{{data.list5}}</li>
+                                                {% endif %}     
+                                            </ul>                     
+                                    </div>
+                                </div>
+                                <div class="col-6 col_6">
+                                        <img src="{{data.img.url}}" alt="">
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% for data in civil_law %}
+                                    <div id="civil_law" class="row" style="position:relative ;background: rgb(12, 18, 21);">
+                                        <div class="col-6 col_61">
+                                                <img src="{{data.img.url}}" alt="">
+                                        </div>
+                                    <div class="col-6 col_612" id="ml">
+                                        <div class="card" style="border: none!important;background: rgb(12, 18, 21);">
+                                            <h2>Civil Law</h2>
+                                            <br>
+                                            <p class="para">{{data.title}}</p>
+                                            <ul>
+                                                    {% if data.list1%}
+                                                    <li class="list1">{{data.list1}}</li>
+                                                    {% endif %}
+                                                    <br>
+                                                    {% if data.list2%}
+                                                    <li class="list1">{{data.list2}}</li>
+                                                    {% endif %}
+                                                    <br>
+                                                    {% if data.list3%}
+                                                    <li class="list1">{{data.list3}}</li>
+                                                    {% endif %}
+                                                    <br>
+                                                    {% if data.list4%}
+                                                    <li class="list1">{{data.list4}}</li>
+                                                    {% endif %}
+                                                    <br>
+                                                    {% if data.list5%}
+                                                    <li class="list1">{{data.list5}}</li>
+                                                    {% endif %}
+                                                    <br>
+                                                    {% if data.list6%}
+                                                    <li class="list1">{{data.list4}}</li>
+                                                    {% endif %}
+                                                    <br>
+                                                    {% if data.list7%}
+                                                    <li class="list1">{{data.list5}}</li>
+                                                    {% endif %}     
+                                                </ul>                       
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% for data in family_law %}
+                                    <div  id="family_law" class="row" style="background-color: #111;">
+                                            <div class="col-6 col_66" id="ml" >
+                                                <div  style="border: none!important;background-color:#111;";>
+                                                    <h2>Family Law</h2>
+                                                    <br>
+                                                    <p class="para">{{data.title}}</p>
+                                                    <ul>
+                                                        {% if data.list1%}
+                                                        <li class="list1">{{data.list1}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list2%}
+                                                        <li class="list1">{{data.list2}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list3%}
+                                                        <li class="list1">{{data.list3}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list4%}
+                                                        <li class="list1">{{data.list4}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list5%}
+                                                        <li class="list1">{{data.list5}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list6%}
+                                                        <li class="list1">{{data.list4}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list7%}
+                                                        <li class="list1">{{data.list5}}</li>
+                                                        {% endif %}     
+                                                    </ul>
+                                                    </p>                       
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col_6">
+                                                    <img src="{{data.img.url}}" alt="">
+                                            </div>
+                                    </div>
+                                {% endfor %}
+                                {% for data in writs %}
+                                        <div id="writs" class="row" style="position:relative ;background: rgb(12, 18, 21);">
+                                            <div class="col-6 col_61">
+                                                    <img src="{{data.img.url}}" alt="">
+                                            </div>
+                                        <div class="col-6 col_612" id="ml">
+                                            <div class="card" style="border: none!important;background: rgb(12, 18, 21);">
+                                                <h2>Writs</h2>
+                                                <br>
+                                                <p class="para">{{data.title}}</p>
+                                                <ul>
+                                                        {% if data.list1%}
+                                                        <li class="list1">{{data.list1}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list2%}
+                                                        <li class="list1">{{data.list2}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list3%}
+                                                        <li class="list1">{{data.list3}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list4%}
+                                                        <li class="list1">{{data.list4}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list5%}
+                                                        <li class="list1">{{data.list5}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list6%}
+                                                        <li class="list1">{{data.list4}}</li>
+                                                        {% endif %}
+                                                        <br>
+                                                        {% if data.list7%}
+                                                        <li class="list1">{{data.list5}}</li>
+                                                        {% endif %}     
+                                                    </ul>
+                                                </p>                       
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    {% for data in consultants %}
+                                        <div id="consultants" class="row" style="background:#111;">
+                                            <div class="col-6 col_66" id="ml">
+                                                <div class="card" style="border: none!important;background: #111;">
+                                                    <h2>Consultants</h2>
+                                                    <br>
+                                                    <p class="para">{{data.title}}</p>
+                                                    <ul>
+                                                            {% if data.list1%}
+                                                            <li class="list1">{{data.list1}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list2%}
+                                                            <li class="list1">{{data.list2}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list3%}
+                                                            <li class="list1">{{data.list3}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list4%}
+                                                            <li class="list1">{{data.list4}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list5%}
+                                                            <li class="list1">{{data.list5}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list6%}
+                                                            <li class="list1">{{data.list4}}</a></li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list7%}
+                                                            <li class="list1">{{data.list5}}</li>
+                                                            {% endif %}     
+                                                        </ul>                      
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col_6">
+                                                    <img src="{{data.img.url}}" alt="">
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    {% comment %} {% for data in labour_laws %}
+                                        <div id="labour_laws" class="row" style="background:#111;">
+                                                <div class="col-6 col_66" id="ml">
+                                                    <div class="card" style="border: none!important;background: #111;">
+                                                        <h2>Labour Laws</h2>
+                                                        <br>
+                                                        <p class="para">{{data.title}}</p>
+                                                        <ul>
+                                                                {% if data.list1%}
+                                                                <li class="list1">{{data.list1}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list2%}
+                                                                <li class="list1">{{data.list2}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list3%}
+                                                                <li class="list1">{{data.list3}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list4%}
+                                                                <li class="list1">{{data.list4}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list5%}
+                                                                <li class="list1">{{data.list5}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list6%}
+                                                                <li class="list1">{{data.list4}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list7%}
+                                                                <li class="list1">{{data.list5}}</li>
+                                                                {% endif %}     
+                                                            </ul>
+                                                        </p>                       
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col_6">
+                                                        <img src="{{data.img.url}}" alt="">
+                                                </div>
+                                            </div>
+                                            {% endfor %} {% endcomment %}
+                                            {% for data in service_matters %}
+                                            <div id="service_matters" class="row" style="position:relative ;background: rgb(12, 18, 21);">
+                                                    <div class="col-6 col_61">
+                                                            <img src="{{data.img.url}}" alt="">
+                                                    </div>
+                                                <div class="col-6 col_612" id="ml">
+                                                    <div class="card" style="border: none!important;background: rgb(12, 18, 21);">
+                                                        <h2>Service Matters | Labour Laws</h2>
+                                                        <br>
+                                                        <p class="para">{{data.title}}</p>
+                                                        <ul>
+                                                                {% if data.list1%}
+                                                                <li class="list1">{{data.list1}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list2%}
+                                                                <li class="list1">{{data.list2}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list3%}
+                                                                <li class="list1">{{data.list3}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list4%}
+                                                                <li class="list1">{{data.list4}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list5%}
+                                                                <li class="list1">{{data.list5}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list6%}
+                                                                <li class="list1">{{data.list4}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list7%}
+                                                                <li class="list1">{{data.list5}}</li>
+                                                                {% endif %}     
+                                                            </ul>                   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            {% for data in consumer_matters %}
+                                            <div id="consumer_matters" class="row" style="background:#111;">
+                                                <div class="col-6 col_66" id="ml">
+                                                    <div class="card" style="border: none!important;background: #111;">
+                                                        <h2>Consumer Matters</h2>
+                                                        <br>
+                                                        <p class="para">{{data.title}}</p>
+                                                        <ul>
+                                                                {% if data.list1%}
+                                                                <li class="list1">{{data.list1}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list2%}
+                                                                <li class="list1">{{data.list2}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list3%}
+                                                                <li class="list1">{{data.list3}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list4%}
+                                                                <li class="list1">{{data.list4}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list5%}
+                                                                <li class="list1">{{data.list5}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list6%}
+                                                                <li class="list1">{{data.list4}}</li>
+                                                                {% endif %}
+                                                                <br>
+                                                                {% if data.list7%}
+                                                                <li class="list1">{{data.list5}}</li>
+                                                                {% endif %}     
+                                                            </ul>                       
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col_6">
+                                                        <img src="{{data.img.url}}" alt="">
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            {% for data in immigrations %}
+                                            <div id="immigrations" class="row" style="position:relative ;background: rgb(12, 18, 21);">
+                                                <div class="col-6 col_61">
+                                                        <img src="{{data.img.url}}" alt="">
+                                                </div>
+                                            <div class="col-6 col_612" id="ml">
+                                                <div class="card" style="border: none!important;background: rgb(12, 18, 21);">
+                                                    <h2>Immigrations</h2>
+                                                    <br>
+                                                    <p class="para">{{data.title}}</p>
+                                                    <ul>
+                                                            {% if data.list1%}
+                                                            <li class="list1">{{data.list1}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list2%}
+                                                            <li class="list1">{{data.list2}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list3%}
+                                                            <li class="list1">{{data.list3}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list4%}
+                                                            <li class="list1">{{data.list4}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list5%}
+                                                            <li class="list1">{{data.list5}}</a></li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list6%}
+                                                            <li class="list1">{{data.list4}}</a></li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list7%}
+                                                            <li class="list1">{{data.list5}}</a></li>
+                                                            {% endif %}     
+                                                        </ul>                      
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                        {% comment %} {% for data in consultants %}
+                                        <div id="consultants" class="row" style="background:#111;">
+                                            <div class="col-6 col_66" id="ml">
+                                                <div class="card" style="border: none!important;background: #111;">
+                                                    <h2>Consultants</h2>
+                                                    <br>
+                                                    <p class="para">{{data.title}}</p>
+                                                    <ul>
+                                                            {% if data.list1%}
+                                                            <li class="list1">{{data.list1}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list2%}
+                                                            <li class="list1">{{data.list2}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list3%}
+                                                            <li class="list1">{{data.list3}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list4%}
+                                                            <li class="list1">{{data.list4}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list5%}
+                                                            <li class="list1">{{data.list5}}</li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list6%}
+                                                            <li class="list1">{{data.list4}}</a></li>
+                                                            {% endif %}
+                                                            <br>
+                                                            {% if data.list7%}
+                                                            <li class="list1">{{data.list5}}</li>
+                                                            {% endif %}     
+                                                        </ul>                      
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col_6">
+                                                    <img src="{{data.img.url}}" alt="">
+                                            </div>
+                                        </div>
+                                        {% endfor %} {% endcomment %}
+                                    
+                                </div>
+                        </div>
+                </div>
+            </div>
+        <!-- Footer -->
+        <footer class="page-footer font-small stylish-color-dark" style="background: linear-gradient(to bottom, #251716 -34%, #111 17%);">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+    
+        <!-- Grid row -->
+        <div class="row">
+    
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+    
+            <!-- Content -->
+            <h5 class="text-white mt-3 mb-4">About Us</h5>
+            <p>AL GHANI Associates is a highly acclaimed and well-reputed law Chamber  having its head office at Lahore Punjab but  operating  through out Pakistan and also providing Advisory services to international companies. </p>
+
+                
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+    
+            <!-- Links -->
+            <h5 class=" text-white mt-3 mb-4">Links</h5>
+    
+            <ul class="list-unstyled">
+                <li>
+                <a href="/">Home</a>
+                </li>
+                <li>
+                <a href="/services">Services</a>
+                </li>
+                <li>
+                <a href="/portfolio">Portfolio</a>
+                </li>
+                <li>
+                <a href="/#team">Team</a>
+                </li>
+                <li>
+                <a href="/blog">Blog</a>
+                </li>
+                <li>
+                <a href="/#contact">Contact Us</a>
+                </li>
+            </ul>
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+    
+            <!-- Links -->
+            <h5 class="text-white mt-3 mb-4">Services</h5>
+
+            <ul class="list-unstyled">
+                <li>
+                <a href="#!">Civil Law </a>
+                </li>
+                <li>
+                <a href="#!">Criminal Law</a>
+                </li>
+                <li>
+                <a href="#!">Family Law</a>
+                </li>
+                <li>
+                <a href="#!">Labour Law</a>
+                </li>
+            </ul>
+    
+            </div>
+            <!-- Grid column -->
+    
+            <hr class="clearfix w-100 d-md-none">
+    
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+    
+            <!-- Links -->
+            <h5 class="text-white mt-3 mb-4">Blog</h5>
+            {% for blog in footer_blog_posts %}
+            <h5 class="card-title"style="color: #eeeeeeb3;">{{blog.title}}</h5>
+            <a href="{% url 'latest_blog_detail' slug=blog.slug pk=blog.pk %}"><img src="{{blog.img.url}}" alt=""></a>
+            <br><br>
+            <p style="font-size: 12px;">{{blog.description}}</p>
+            {% endfor %}
+            {% comment %} <h5 class="text-white mt-3 mb-4">Follow Us</h5>
+            <ul class="list-unstyled">
+                    <li>
+                    <a href="#!">Facebook</a>
+                    </li>
+                    <li>
+                    <a href="#!">Instagram</a>
+                    </li>
+                    <li>
+                    <a href="#!">Twitter</a>
+                    </li>
+                </ul> {% endcomment %}
+            <!-- <ul class="list-unstyled">
+                <li>
+                <a href="#!">Link 1</a>
+                </li>
+                <li>
+                <a href="#!">Link 2</a>
+                </li>
+                <li>
+                <a href="#!">Link 3</a>
+                </li>
+                <li>
+                <a href="#!">Link 4</a>
+                </li>
+            </ul> -->
+    
+            </div>
+            <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+    
+        </div>
+        <!-- Footer Links -->
+    
+        <hr>
+    
+        <!-- Social buttons -->
+        {% comment %} <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+            <a class="btn-floating btn-fb mx-1" href="#">
+                <i class="fab fa-facebook-f"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1" href="#">
+                <i class="fab fa-twitter"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1" href="#">
+                <i class="fab fa-instagram"> </i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="btn-floating btn-li mx-1" href="#">
+                <i class="fab fa-linkedin-in"> </i>
+            </a>
+        </li>
+       
+        </ul> {% endcomment %}
+        <!-- Social buttons -->
+    
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-muted">© 2019 Copyright:
+            <span>Powered by<a class="text-white" href="#"> Crymzee Pvt. Ltd.</a></span>
+        </div>
+        <!-- Copyright -->
+    
+    </footer>
+    <!-- Footer -->
+
+    <script>
+        //Change pos/background/padding/add shadow on nav when scroll event happens 
+        $(function(){
+            var navbar = $('.navbar');
+            
+            $(window).scroll(function(){
+                if($(window).scrollTop() <= 40){
+                    navbar.removeClass('navbar-scroll');
+                } else {
+                    navbar.addClass('navbar-scroll');
+                }
+            });
+        });
+    </script>
+        <script>
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+            
+            function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+            }
+            
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            }
+        </script>
+        <script>
+                AOS.init();
+        </script>
+        
+    <script src="{% static 'css/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html> 

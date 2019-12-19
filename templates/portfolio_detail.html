@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static "images" as baseURL %}
+
+
+{% block content %}
+<div id="portfolio_detail">
+    <div class="container-fluid detail_fluid">
+        <div class="row banner_row">
+            <div class="col" style="background-color: #070e17;">
+                <h2>Portfolio Page</h2>
+            </div>
+            <div class="col banner-portfolio" style="background-image: url('{% static 'img/portfolio2.jpg' %}');">
+                    <p>Portfolio/Portfolio Page</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="portfolio_detail2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12  below-banner">
+                <img src="{{post1.img.url}}" alt="">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <table class="table">
+                            <tbody>
+                              <tr>
+                                <th classs="info1">Job INFO:</th>
+                              </tr>
+                              <tr>
+                                <th class="info2">CLIENT:</th>
+                                <td class="info6">{{post1.location|title}}</td>
+                                <th class="info3">DATE:</th>
+                                <td class="info7">{{post1.created_on}}</td>
+                              </tr>
+                              <tr>
+                                <th class="info4">Type:</th>
+                                <td class="info8">{{post1.title}}</td>
+                                <th class="info5">STATUS:</th>
+                                <td class="info9">Done</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="para1">
+                                <p>{{post1.descriptions}}</p>
+                          </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="portfolio_detail3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Our Achievements</h2>
+                    <div class="line"></div>                       
+                </div>
+            </div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                    <p>Our law firm has a highly reputable record of offering law services in Pakistan. The lawyers associated with our firm have a very broad experience of working on matters related to law services in Pakistan and have covered vast cases in higher courts as well in this domain.
+                    </p>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+            <div class="row row-pad">
+                {% for post2 in portfolio2 %}
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mix" style="display: inline-block;">
+                    <div class="portfolio-image" data-category="ml">
+                        <a href="{% url 'portfolio_detail' pk=post2.pk %}"><img src="{{post2.img.url}}" alt=""></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+ 
+        </div>
+    </div>
+
+{% endblock %}
