@@ -4,9 +4,10 @@ from django.contrib.auth.models import User
 
 class AdminTeam(models.Model):
 
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100 )
     img = models.ImageField(upload_to='pics')
-    desc = models.TextField()
+    designation = models.CharField(max_length=100,default="")
+    qualification = models.CharField(max_length=100,default="")
     socialshare = models.BooleanField(default=False)
 
     def __str__(self):

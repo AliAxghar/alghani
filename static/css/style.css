@@ -251,9 +251,10 @@ html {
     clip-path: polygon(0 0%, 100% 8%, 100% 100%, 0 95%);
     }
     body #about_sec .row .col-md-5 img {
-      width: 250px;
-      border-radius: 50%; 
-      margin-left: 95px;
+      width: 130px;
+      border-radius: 50%;
+      POSITION: RELATIVE;
+      left: 158px;
     }
     body #about_sec .row .about_text{
       text-align: left;
@@ -305,6 +306,7 @@ html {
           line-height: 15px;
           letter-spacing: 0.03em;
           margin-top: 15px;
+          padding-bottom: 14px;
           color: #eeeeeeb3; }
         body #team .row .col p {
           font-family: "Palanquin Dark", sans-serif;
@@ -415,6 +417,13 @@ html {
   @media only screen and (max-width: 850px) {
     body #services_page .row .col-6 img{
       display: none;
+    }
+  }
+  @media only screen and (max-width: 850px) {
+    body #about_sec .row .about_text h2{
+      font-family: "Palanquin Dark", sans-serif;
+      color: #eeeeeeb3;
+      font-size: 1.4rem;
     }
   }
   @media only screen and (max-width: 768px) {
@@ -1206,10 +1215,10 @@ body .link1 a:hover{
 }
 @media only screen and (max-width: 768px) {
     body #about_sec .row .col-md-5 img {
-      width: 250px;
+      width: 173px;
       border-radius: 50%;
       position: relative;
-      right: 63px!important;
+      left: 70px!important;
     }
 }
 @media only screen and (max-width: 768px) {
@@ -1255,7 +1264,7 @@ body #about_sec .row .col-md-5 p {
   font-family: "Palanquin Dark", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 22px;
+  font-size: 19px;
   line-height: 15px;
   letter-spacing: 0.03em;
   margin-top: 15px;
